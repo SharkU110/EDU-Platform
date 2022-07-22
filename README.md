@@ -37,9 +37,13 @@ GitHub仓库
 ```
 140.82.113.3 github.com
 185.199.108.153 assets-cdn.github.com
-199.232.69.194 github.global.ssl.fastly.net
 ```
 
 上面的IP是通过 https://www.ipaddress.com/ 这个网站得到的
 
-最后，cmd执行`ipconfig/flushdns`
+最后，cmd执行
+
+`ipconfig/flushdns`
+
+`ping github.com`
+
