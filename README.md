@@ -30,15 +30,16 @@ GitHub仓库
 
 ## GitHub访问慢的解决
 
-”C:\Windows\System32\drivers\etc“路径下的`hosts文件，
+进入”C:\Windows\System32\drivers\etc“路径下的`hosts文件，
 
-修改GitHub相关域名解析，
+修改GitHub相关域名解析，添加如下行
 
 ```
-140.82.113.3 www.github.com
+140.82.113.3 github.com
 185.199.108.153 assets-cdn.github.com
 199.232.69.194 github.global.ssl.fastly.net
 ```
 
 上面的IP是通过https://www.ipaddress.com/这个网站得到的
 
+最后，cmd执行`ipconfig/flushdns`
