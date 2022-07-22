@@ -40,6 +40,6 @@ GitHub仓库
 199.232.69.194 github.global.ssl.fastly.net
 ```
 
-上面的IP是通过https://www.ipaddress.com/这个网站得到的
+上面的IP是通过 https://www.ipaddress.com/ 这个网站得到的
 
 最后，cmd执行`ipconfig/flushdns`
