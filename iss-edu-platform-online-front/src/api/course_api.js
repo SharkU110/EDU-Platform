@@ -49,7 +49,6 @@ function insertCatalogue(formData) {
     });
 }
 
-
 function removeCatalogue(id, courseId) {
     return request({
         url: '/catalogue/deleteCatalogue/' + id + '/' + courseId,
@@ -70,7 +69,6 @@ function deletes(ids) {
         method: 'get'
     })
 }
-
 
 function getMaterialsByCourseId(id) {
     return request({

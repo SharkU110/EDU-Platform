@@ -11,50 +11,76 @@
     <el-form :model="course" label-position="left" label-width="90px" ref="studentForm" style="width: 65%;">
       <el-container>
         <el-main style="padding: 0;">
-          <el-form-item label="学生姓名" prop="nickname">
-            <el-input v-model="course.name" style="width: 200px"/>
-          </el-form-item>
-          <el-form-item label="性别" prop="sex">
-            <el-radio-group v-model="course.isPrivate">
-              <el-radio :label="0">男</el-radio>
-              <el-radio :label="1">女</el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="登录账号" prop="username">
-            <el-input v-model="course.name" style="width: 200px"/>
-          </el-form-item>
+          <el-row>
+            <el-col :span="12">
+            <el-form-item label="学生姓名" prop="nickname">
+              <el-input v-model="course.name" class="insertblank"/>
+            </el-form-item>
+            </el-col>
+            <el-col :span="12">
+           <el-form-item label="学生性别" prop="sex">
+              <el-radio-group v-model="course.isPrivate">
+                <el-radio :label="0">男</el-radio>
+                <el-radio :label="1">女</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col :span="12">
+              <el-form-item label="登录账号" prop="username">
+                <el-input v-model="course.name" class="insertblank"/>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="登录密码" prop="password">
+                <el-input v-model="course.name" class="insertblank"/>
+              </el-form-item>
+            </el-col>
+          </el-row>  
+          <el-row>
+            <el-col :span="12">
+              <el-form-item label="邮箱地址" prop="email">
+                <el-input v-model="course.name" class="insertblank"/>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="QQ号码" prop="qq_number">
+                <el-input v-model="course.name" class="insertblank"/>
+              </el-form-item>
+            </el-col>
+          </el-row>  
+          <el-row>
+            <el-col :span="12">
+              <el-form-item label="手机号码" prop="phone">
+                <el-input v-model="course.name" class="insertblank"/>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="身份证号" prop="identity_card">
+                <el-input v-model="course.name" class="insertblank"/>
+              </el-form-item>
+             </el-col>
+          </el-row>
         </el-main>
-        <el-aside style="width: 200px;display: flex;justify-content: center;padding-bottom: 20px;">
-          <el-upload name="avatar" class="avatar-uploader" :show-file-list="false" :action="this.$uploadAvatar"
+          <el-aside style="width: 225px;display: flex;justify-content: center;padding-bottom: 20px;">
+            <el-upload name="avatar" class="avatar-uploader" :show-file-list="false" :action="this.$uploadAvatar"
                      :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
             <img v-if="avatar" :src="avatar" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-aside>
       </el-container>
-      <el-form-item label="课程简介" prop="introduction">
-        <el-input type="textarea" :rows="5" placeholder="请输入内容" v-model="course.introduction"/>
+      <el-form-item label="个性签名" prop="signature">
+        <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="course.introduction"/>
       </el-form-item>
-      <el-form-item label="课程资料" prop="name">
-        <el-upload name="material" class="upload-demo" :file-list="fileList" :multiple="true" :limit="10"
-                   :action="this.$uploadAvatar" :on-exceed="handleMaterialsExceed" :on-remove="handleMaterialsRemove" :before-remove="beforeRemove"
-                   :on-success="handleMaterialsSuccess">
-          <el-button size="small" type="primary">点击上传</el-button>
-          <span slot="tip" class="el-upload__tip" style="padding-left: 15px;color: #59A6D5;">只能上传流媒体类型的文件，且不超过200M！</span>
-        </el-upload>
+      <el-form-item label="个性简介" prop="introduction">
+        <el-input type="textarea" :rows="3" placeholder="请输入内容" v-model="course.introduction"/>
       </el-form-item>
-      <el-form-item label="现有资料" prop="introduction">
-        <el-table :data="materials" :border="true" size="mini">
-          <el-table-column type="index" label="序号" align='center' width="50"/>
-          <el-table-column prop="name" label="资源名称" header-align="center" width="550"/>
-          <el-table-column prop="createTime" label="创建时间" align="center"/>
-          <el-table-column label="操作" align="center" width="80"> <!--fixed="right"-->
-            <template v-slot="scope">
-              <el-button size="mini" icon="el-icon-delete" type="danger" @click="handleDelete(scope.row.id)"></el-button>
-            </template>
-          </el-table-column>
-        </el-table>
-      </el-form-item>
+      <el-form-item label="所属班级">
+         <el-transfer filterable :filter-method="filterMethod" filter-placeholder="请输入班级名称" :titles="['所有班级', '指定班级']"
+         v-model="value" :data="data"></el-transfer>
+      </el-form-item>>
     </el-form>
     <el-row style="width: 65%;margin: auto;background-color: #FFFFFF;">
 
@@ -149,8 +175,8 @@ export default {
 
 <style scoped>
 .avatar-uploader {
-  width: 200px;
-  height: 200px;
+  width: 225px;
+  height: 225px;
   border: 1px dashed #d9d9d9;
   cursor: pointer;
   position: relative;
@@ -164,15 +190,19 @@ export default {
 .avatar-uploader-icon {
   font-size: 36px;
   color: #8c939d;
-  width: 200px;
-  height: 200px;
-  line-height: 200px;
+  width: 225px;
+  height: 225px;
+  line-height: 225px;
   text-align: center;
 }
 
 .avatar {
-  width: 200px;
-  height: 200px;
+  width: 225px;
+  height: 225px;
   display: block;
+}
+
+.insertblank{
+  width: 235px;
 }
 </style>

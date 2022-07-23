@@ -30,10 +30,10 @@
         </el-table-column>
         <el-table-column prop="username" label="账号" width="200" align="center"/>
         <el-table-column prop="nickname" label="姓名" width="200" align="center"/>
-        <el-table-column prop="stu_number" label="学号" width="200" align="center"/>
-        <el-table-column prop="phone" label="手机号码" width="200" align="center"/>
-        <el-table-column prop="qq_number" label="QQ号码" width="320" align="center"/>
-        <el-table-column prop="email" label="邮箱地址" width="180" align="center">
+        <el-table-column prop="stu_number" label="学号" width="150" align="center"/>
+        <el-table-column prop="phone" label="手机号码" width="150" align="center"/>
+        <el-table-column prop="qq_number" label="QQ号码" width="150" align="center"/>
+        <el-table-column prop="email" label="邮箱地址" width="250" align="center">
           <template v-slot="scope">
             {{ scope.row.operator }} <br>
             {{ scope.row.lastUpdate }}

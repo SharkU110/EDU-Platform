@@ -30,8 +30,8 @@
         <el-table-column prop="username" label="登陆账号" width="200" align="center"/>
         <el-table-column prop="nickname" label="用户姓名" width="200" align="center"/>
         <el-table-column prop="level" label="级别" width="200" align="center" :formatter="handleFormate"/>
-        <el-table-column prop="phone" label="手机" width="200" align="center"/>
-        <el-table-column prop="email" label="邮箱" width="320" align="center"/>
+        <el-table-column prop="phone" label="手机" width="120" align="center"/>
+        <el-table-column prop="email" label="邮箱" width="250" align="center"/>
         <el-table-column prop="operator" label="添加人/时间" width="180" align="center">
           <template v-slot="scope">
             {{ scope.row.operator }} <br>
