@@ -38,6 +38,11 @@ let router = new Router({
                     component: () => import('./pages/teacher/Teachers')
                 },
                 {
+                    path: "students",
+                    name: "Students",
+                    component: () => import('./pages/student/Students')
+                },
+                {
                     path: "courses",
                     name: "Courses",
                     component: () => import('./pages/course/Courses')
@@ -50,8 +55,13 @@ let router = new Router({
                 },
                 {
                     path: "courses/updateCourse/:id",
-                    name: "CatalogueList",
+                    name: "UpdateCourseForm",
                     component: () => import('./pages/course/UpdateCourseForm')
+                },
+                {
+                    path: "students/updateStudent/:id",
+                    name: "UpdateStudentForm",
+                    component: () => import('./pages/student/UpdateStudentForm')
                 }
             ]
         }

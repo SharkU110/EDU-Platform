@@ -18,7 +18,7 @@
             <i class="icon-zz-profile"></i>
           </el-tooltip>
         </el-menu-item>
-        <el-menu-item >
+        <el-menu-item @click="$router.push('/index/students')">
           <el-tooltip class="item" effect="light" content="学生" placement="right">
             <i class="icon-zz-people"></i>
           </el-tooltip>
